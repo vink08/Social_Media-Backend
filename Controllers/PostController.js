@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import UserModel from "../models/userModel.js";
 export const createPost = async (req, res) => {
   const newPost = new PostModel(req.body);
-
+  
   try {
     await newPost.save();
     res.status(200).json("Post created!");
@@ -45,7 +45,7 @@ export const deletePost = async (req, res) => {
     const post = await PostModel.findById(id);
     if (post.userId === userId) {
       await post.deleteOne();
-      res.status(200).json("POst deleted successfully");
+      res.status(200).json("post deleted successfully");
     } else {
       res.status(403).json("Action forbidden");
     }

@@ -16,7 +16,12 @@ app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
 app.use('/post', PostRoute)
 
-const port = 3000
+
+app.get('/', (req, res) => {
+    res.send('running')
+})
+
+//const port = 3000
 
 
 
@@ -31,6 +36,7 @@ mongoose.connect("mongodb://localhost:27017/socialmedia", {useNewUrlParser: true
 .then(()=>{
     app.listen(5000, ()=>{
         console.log("Server running on  5000");
+        
     });
 })
 .catch((error)=>{
